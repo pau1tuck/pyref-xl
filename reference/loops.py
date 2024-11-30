@@ -7,15 +7,19 @@ nums = [1, 2, 3, 4, 5]
 for num in nums:
     print(num)  # Output: 1, 2, 3, 4, 5
 
+# List comprehension:
+squared_nums = [num**2 for num in nums]
+print(squared_nums)  # Output: [1, 4, 9, 16, 25]
+
 # 2. Using `range` with for loops
-for i in range(5):  # Loops from 0 to 4
-    print(i)  # Output: 0, 1, 2, 3, 4
+for i in range(6):  # Loops from 0 to 6
+    print(i)  # Output: 0, 1, 2, 3, 4, 5
 
 for i in range(1, 6):  # Loops from 1 to 5
     print(i)  # Output: 1, 2, 3, 4, 5
 
 # 3. Iterating with `enumerate` (index and value)
-nums = range(1, 6)  # Loops from 1 to 5
+nums = range(1, 11)  # Loops from 1 to 10
 for index, value in enumerate(nums, start=0):  # `start=0` makes the index start from 0
     print(f"Index: {index}, Value: {value}")
 
@@ -42,19 +46,19 @@ for key, value in person.items():
 
 # *** WHILE ***
 
-# 7. Basic while loop
+# 1. Basic while loop
 i = 0
 while i < 5:
     print(i)
     i += 1  # Increment `i`
 
-# 8. Infinite while loop (with break)
+# 2. Infinite while loop (with break)
 while True:
     print("Looping forever...")
     break
 
 
-# 9. Using `continue` to skip iterations
+# 3. Using `continue` to skip iterations
 i = 0
 while i < 10:
     i += 1
@@ -74,33 +78,33 @@ while True:
 
 # *** LIST COMPREHENSIONS ***
 
-# 10. Basic list comprehension
+# 1. Basic list comprehension
 nums = [1, 2, 3, 4, 5]
 squares = [num**2 for num in nums]  # [1, 4, 9, 16, 25]
 
-# 11. List comprehension with condition
+# 2. List comprehension with condition
 evens = [num for num in nums if num % 2 == 0]  # [2, 4]
 
-# 12. Nested list comprehension
+# 3. Nested list comprehension
 matrix = [[1, 2], [3, 4], [5, 6]]
 flattened = [val for row in matrix for val in row]  # [1, 2, 3, 4, 5, 6]
 
 # *** DICTIONARY COMPREHENSIONS ***
 
-# 13. Create a dictionary with comprehension
+# 4. Create a dictionary with comprehension
 keys = ["a", "b", "c"]
 values = [1, 2, 3]
 dict_comp = {k: v for k, v in zip(keys, values)}  # {'a': 1, 'b': 2, 'c': 3}
 
 # *** SET COMPREHENSIONS ***
 
-# 14. Create a set with comprehension
+# 5. Create a set with comprehension
 nums = [1, 2, 2, 3, 3, 4]
 unique_squares = {num**2 for num in nums}  # {1, 4, 9, 16}
 
 # *** GENERATOR EXPRESSIONS ***
 
-# 15. Generator for memory-efficient iteration
+# Generator for memory-efficient iteration
 nums = [1, 2, 3, 4, 5]
 gen = (num**2 for num in nums)  # Use `()` for generators
 for square in gen:
@@ -108,19 +112,19 @@ for square in gen:
 
 # *** CONTROL FLOW IN LOOPS ***
 
-# 16. Using `break` to exit a loop early
+# 1. Using `break` to exit a loop early
 for num in range(10):
     if num == 5:
         break
     print(num)  # Output: 0, 1, 2, 3, 4
 
-# 17. Using `continue` to skip an iteration
+# 2. Using `continue` to skip an iteration
 for num in range(10):
     if num % 2 == 0:
         continue  # Skip even numbers
     print(num)  # Output: 1, 3, 5, 7, 9
 
-# 18. Using `else` with loops
+# 3. Using `else` with loops
 for num in range(3):
     print(num)
 else:
@@ -128,7 +132,7 @@ else:
 
 # *** UNPACKING WITH LOOPS ***
 
-# 19. Unpacking in a loop
+# Unpacking in a loop
 data = [(1, 2, 3), (4, 5, 6), (7, 8, 9)]
 for x, y, z in data:
     print(f"x={x}, y={y}, z={z}")
@@ -137,21 +141,21 @@ for x, y, z in data:
 
 from itertools import cycle, islice
 
-# 20. Infinite looping with `cycle`
+# Infinite looping with `cycle`
 colors = ["red", "green", "blue"]
 for color in islice(cycle(colors), 10):  # Cycle through `colors` 10 times
     print(color)  # Output: red, green, blue, red, green, ...
 
 # *** LOOPING OVER STRINGS ***
 
-# 21. Iterating over characters in a string
+# Iterating over characters in a string
 word = "hello"
 for char in word:
     print(char)  # Output: h, e, l, l, o
 
 # *** NESTED LOOP OPTIMIZATION ***
 
-# 22. Break out of nested loops with a flag
+# Break out of nested loops with a flag
 found = False
 for i in range(3):
     for j in range(3):
