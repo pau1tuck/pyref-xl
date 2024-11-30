@@ -9,9 +9,10 @@ TIMEZONE_MAP = {
     "CET": "Europe/Berlin",
     "CST": "America/Chicago",
     "EST": "America/New_York",
+    "GMT": "Etc/GMT",
     "ICT": "Asia/Bangkok",
     "JST": "Asia/Tokyo",
-    "GMT": "Etc/GMT",
+    "NYT": "America/New_York",
     "PST": "America/Los_Angeles",
     "UTC": "UTC",
 }
