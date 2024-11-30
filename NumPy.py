@@ -11,7 +11,7 @@ np.ceil(5.3)  # 6 - round up to the nearest integer
 np.floor(5.95)  # 5 - round down to the nearest integer
 np.trunc(5.95)  # 5 - truncate decimal to integer
 
-# Absolute Value
+# Absolute Value``
 np.abs(-7.25)  # 7.25 - absolute value
 
 # Exponents and Roots
