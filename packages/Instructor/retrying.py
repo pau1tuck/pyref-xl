@@ -1,4 +1,4 @@
-# Comprehensive reference for retrying and validation features in Instructor using OpenAI and Tenacity
+# Reference for retrying and validation features in Instructor using OpenAI and Tenacity
 
 from typing import Annotated, Literal
 from pydantic import BaseModel, Field, AfterValidator, field_validator
