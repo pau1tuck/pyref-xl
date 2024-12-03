@@ -7,6 +7,7 @@ a, b = b, a
 print("a =", a)  # Output: a = 10
 print("b =", b)  # Output: b = 5
 
+# Swap the variables using XOR
 x = 5
 y = 10
 
