@@ -1,5 +1,4 @@
 # apps/insights/services/openai/summary_generator.py
-
 import os
 from django.conf import settings
 from instructor import from_openai
@@ -32,15 +31,6 @@ client = from_openai(OpenAI(api_key=openai_api_key))
     ),
 )
 def call_openai_api(prompt: str) -> SummaryOutput:
-    """
-    Makes a call to the OpenAI API with a retry mechanism for transient errors.
-
-    Args:
-        prompt (str): The input prompt for the OpenAI model.
-
-    Returns:
-        SummaryOutput: A structured summary containing dataset insights and key metrics.
-    """
     try:
         # Make the API call
         return client.chat.completions.create(
@@ -54,15 +44,6 @@ def call_openai_api(prompt: str) -> SummaryOutput:
 
 
 def generate_summary(statistical_summary: str) -> SummaryOutput:
-    """
-    Generates a structured dataset summary using OpenAI API.
-
-    Args:
-        statistical_summary (str): Statistical summary of the dataset.
-
-    Returns:
-        SummaryOutput: A structured summary containing dataset insights and key metrics.
-    """
     prompt = f"""
 You are a data analyst tasked with summarizing a dataset. The following is a statistical summary of the dataset:
 

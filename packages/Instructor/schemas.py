@@ -5,18 +5,11 @@ from typing import List
 
 
 class KeyMetric(BaseModel):
-    """
-    Represents a single key metric extracted from the dataset summary.
-    """
-
     name: str
     value: float
 
     @classmethod
     def ordered_metrics(cls) -> List["KeyMetric"]:
-        """
-        Defines the exact order and expected names for key metrics.
-        """
         return [
             cls(name="Average Sessions", value=0),
             cls(name="Average Users", value=0),
@@ -31,9 +24,6 @@ class KeyMetric(BaseModel):
         ]
 
     def validate_name(self) -> bool:
-        """
-        Ensures that the name of the metric matches one of the expected names.
-        """
         expected_names = [metric.name for metric in self.ordered_metrics()]
         if self.name not in expected_names:
             raise ValueError(f"Unexpected metric name: {self.name}")
@@ -41,10 +31,6 @@ class KeyMetric(BaseModel):
 
 
 class SummaryOutput(BaseModel):
-    """
-    Structured output for a dataset summary response from the LLM.
-    """
-
     dataset_summary: str = Field(
         ..., description="A concise English summary of the dataset."
     )
@@ -53,9 +39,6 @@ class SummaryOutput(BaseModel):
     )
 
     def enforce_ordered_metrics(self):
-        """
-        Enforces that key metrics are in the exact order defined by `KeyMetric.ordered_metrics`.
-        """
         ordered_names = [metric.name for metric in KeyMetric.ordered_metrics()]
         self.key_metrics = sorted(
             self.key_metrics,
@@ -71,10 +54,6 @@ class SummaryOutput(BaseModel):
 
 
 class KeyMetricComparison(BaseModel):
-    """
-    Represents a comparison of a key metrics between two datasets.
-    """
-
     name: str
     value1: float
     value2: float
@@ -82,10 +61,6 @@ class KeyMetricComparison(BaseModel):
 
 
 class ComparisonOutput(BaseModel):
-    """
-    Structured output for comparing two dataset summaries.
-    """
-
     comparison_summary: str = Field(
         ...,
         description="A concise English summary highlighting differences and similarities between the current week and the previous week.",
